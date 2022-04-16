@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Edit{{ movie.title }} Rating & Review{% endblock %}
+
+
+{% block content %}
+    <div class="jumbotron jumbotron-fluid">
+     <form action="{{url_for('edit')}}" method="POST">
+        <!-- Sends form data to edit function to update -->
+        <p>Book Name: <h2>{{movie.title}}</h2> </p>
+        <p>Current Rating: <h3>{{movie.rating}}</h3></p>
+        <label>New Rating</label>
+         <input hidden="hidden" name="id" value="{{movie.id}}">
+         <input name="rating" type="text" placeholder="New Rating">
+         <input name="review" type="text" placeholder="New Review">
+         <input name="ranking" type="text" placeholder="New Ranking">
+         <button class="btn btn-success" type="submit">Change Rating</button>
+    </form>
+    </div>
+{% endblock %}
